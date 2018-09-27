@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "title": "neque libero convallis eget",
+      "image": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/karl-magnuson.jpg",
+      "published": "2017-09-14T18:17:00Z",
+      "author": "Michelle Blackford",
+      "id": "neque-libero-convallis-eget"
+    },
+    {
+      "title": "dolor quis",
+      "image": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/maarten-van-den-heuvel.jpg",
+      "published": "2016-10-27T09:42:32Z",
+      "author": "Tommi Filipson",
+      "id": "dolor-quis"
+    }
+  ]
+}
