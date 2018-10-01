@@ -1,5 +1,5 @@
 <template>
-  <transition-group tag="ul" :name="transition"  class="blog__feed">
+  <transition-group tag="ul" :name="transition"  class="club__feed">
     <li v-for="post in feed" class="preview" :key="post.id">
       <figure class="preview__figure" :class="figureClass" :style="getBgImg(post.image)">
         <transition name="v--fade">
@@ -28,8 +28,8 @@
 import { scrollTo, kebabify, prettyDate } from '../helpers'
 
 export default {
-  name: 'blog-feed',
-  resource: 'BlogFeed',
+  name: 'club-feed',
+  resource: 'ClubFeed',
 
   props: {
     filters: {

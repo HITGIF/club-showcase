@@ -1,7 +1,7 @@
 {
-  "name": "vue-blog-demo",
+  "name": "vue-clubs",
   "version": "1.0.0",
-  "description": "A Vue.js blog demo to demonstrate proper decoupling of api data and swapping of resources/providers",
+  "description": "A Vue.js club demo to demonstrate proper decoupling of api data and swapping of resources/providers",
   "author": "Nicolas Udy <dev@udy.io>",
   "private": true,
   "scripts": {
@@ -11,10 +11,14 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "github-markdown-css": "^2.10.0",
     "lodash.merge": "^4.6.0",
     "scrollto-with-animation": "^4.5.2",
+    "showdown": "^1.8.6",
+    "v-viewer": "^1.2.1",
     "vue": "^2.5.2",
     "vue-disqus": "^2.0.3",
+    "vue-markdown": "^2.2.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

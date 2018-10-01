@@ -88,7 +88,6 @@
 
   &__author {
     @extend %ff--500;
-    text-decoration: underline;
   }
 
   &__sep {
@@ -123,6 +122,7 @@
   }
 
   &__body {
+    @extend %txt--md;
     padding: 1.25rem 1.25rem 3.75rem;
     border-bottom: 1px solid cc(border);
 

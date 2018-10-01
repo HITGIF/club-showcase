@@ -1,4 +1,4 @@
-.blog {
+.club {
   position: relative;
   min-height: 100vh;
   max-width: 90rem;
@@ -70,10 +70,10 @@
 
     .signature {
       display: inline-block;
-      width: 15rem;
+      width: 8rem;
 
       @media (--tablet) {
-        width: 18rem;
+        width: 10rem;
       }
     }
   }

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Blog from '../components'
+import Club from '../components'
 
 Vue.use(Router)
 
@@ -10,16 +10,16 @@ export default new Router({
   routes: [{
     path: '/',
     name: 'feed',
-    component: Blog
+    component: Club
   }, {
     path: '/by/:author',
     name: 'author',
     props: true,
-    component: Blog
+    component: Club
   }, {
     path: '/read/:post',
     name: 'post',
     props: true,
-    component: Blog
+    component: Club
   }]
 })

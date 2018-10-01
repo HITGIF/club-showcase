@@ -1,7 +1,7 @@
 <template>
   <transition appear name="v--mask">
-    <footer v-once class="blog__footer">
-      <a class="signature" href="https://snipcart.com" target="_blank">
+    <footer v-once class="club__footer">
+      <a class="signature" href="https://vuejs.org" target="_blank">
         <img src="../assets/vue-snip.svg"/>
       </a>
     </footer>
@@ -9,5 +9,5 @@
 </template>
 
 <script>
-export default { name: 'blog-footer' }
+export default { name: 'club-footer' }
 </script>

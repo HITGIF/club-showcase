@@ -12,20 +12,30 @@
         <blockquote class="post__subtitle">{{ description }}</blockquote>
       </header>
 
-      <section class="post__body rte" v-html="content"></section>
+      <iframe v-if = "video"
+              :src = "video"
+              scrolling="yes" frameborder="no" allowfullscreen="true" id="video"
+              style="width: 100%; height: 60vh; margin-bottom: 80px">
+      </iframe>
+
+      <vue-markdown class="post__body markdown-body" :source="content"></vue-markdown>
 
     </article>
   </transition>
 </template>
 
 <script>
+
 import VueDisqus from 'vue-disqus/VueDisqus'
+import VueMarkdown from 'vue-markdown'
 import { kebabify, prettyDate } from '../helpers'
 
 export default {
-  name: 'blog-post',
-  resource: 'BlogPost',
-  components: { VueDisqus },
+  name: 'club-post',
+  resource: 'ClubPost',
+  components: {
+    VueDisqus, VueMarkdown
+  },
   props: { post: String },
 
   data() {
@@ -35,6 +45,7 @@ export default {
       content: '',
       published: '',
       description: '',
+      video: '',
       commentsReady: false,
       ready: false
     }

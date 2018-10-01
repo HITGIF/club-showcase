@@ -1,3 +1,3 @@
-export { default as Blog } from './Blog'
-export { default as BlogFeed } from './BlogFeed'
-export { default as BlogPost } from './BlogPost'
+export { default as Club } from './Club'
+export { default as ClubFeed } from './ClubFeed'
+export { default as ClubPost } from './ClubPost'

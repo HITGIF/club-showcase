@@ -16,6 +16,11 @@
   font-size: 1rem;
 }
 
+%txt--md {
+  @extend %ff--300;
+  font-size: 1rem;
+}
+
 %txt--rte {
   @extend %txt--body;
   line-height: 1.5;

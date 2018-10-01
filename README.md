@@ -1,12 +1,12 @@
-# A Killer Vue.js Blog Demo: Launch in 2 Hours Tops
+# A Killer Vue.js Club Demo: Launch in 2 Hours Tops
 
-![vuejs-blog-demo](https://snipcart.com/media/175864/build-vuejs-blog-copy.jpg)
+![vuejs-club-demo](https://snipcart.com/media/175864/build-vuejs-club-copy.jpg)
 
-> Learn how to build a killer Vue.js blog with a full demo: custom plugin, templating, pagination, filtering, data decoupling, and more!
+> Learn how to build a killer Vue.js club with a full demo: custom plugin, templating, pagination, filtering, data decoupling, and more!
 
-> [See live demo hosted on Netlify](https://vue-blog-demo.netlify.com/)
+> [See live demo hosted on Netlify](https://vue-club-demo.netlify.com/)
 
-> [Read full tutorial on the blog](https://snipcart.com/blog/vuejs-blog-demo)
+> [Read full tutorial on the club](https://snipcart.com/club/vuejs-club-demo)
 
 ## Build Setup
 

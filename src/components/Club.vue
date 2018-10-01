@@ -1,22 +1,22 @@
 <template>
-  <main class="blog" :class="{ 'blog--reading': this.post }">
-    <blog-nav :content="content" :filters="filters" :navs="navs"/>
-    <blog-feed :filters="filters"/>
-    <blog-post :post="post"/>
-    <blog-footer/>
+  <main class="club" :class="{ 'club--reading': this.post }">
+    <club-nav :content="content" :filters="filters" :navs="navs"/>
+    <club-feed :filters="filters"/>
+    <club-post :post="post"/>
+    <club-footer/>
   </main>
 </template>
 
 <script>
-import BlogNav from './BlogNav'
-import BlogFeed from './BlogFeed'
-import BlogPost from './BlogPost'
-import BlogFooter from './BlogFooter'
+import ClubNav from './ClubNav'
+import ClubFeed from './ClubFeed'
+import ClubPost from './ClubPost'
+import ClubFooter from './ClubFooter'
 
 export default {
-  name: 'blog',
-  components: { BlogNav, BlogFeed, BlogPost, BlogFooter },
-  resource: 'Blog',
+  name: 'club',
+  components: { ClubNav, ClubFeed, ClubPost, ClubFooter },
+  resource: 'Club',
   props: {
     post: String,
     author: String
@@ -54,7 +54,7 @@ export default {
   },
 
   mounted() {
-    this.$getResource('blog')
+    this.$getResource('club')
       .then(x => {
         // use pace hook to know when rendering is ready
       })

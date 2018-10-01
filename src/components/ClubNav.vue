@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'blog-nav',
+  name: 'club-nav',
   props: {
     navs: Number,
     content: Object,
