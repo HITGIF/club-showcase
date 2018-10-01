@@ -16,6 +16,7 @@ const copyFiles = config.build.copyFiles
 const assetsRoot = config.build.assetsRoot
 const webpackConfig = require('./webpack.prod.conf')
 
+/*
 const fileContent = fs.readFileSync(path.resolve(__dirname, '..', 'static', 'api', 'feed.json'));
 const feed = JSON.parse(fileContent);
 const prenderedRoutes = feed.results.map(x => `/read/${x.id}`);
@@ -34,6 +35,7 @@ webpackConfig.plugins.push(
       renderAfterDocumentEvent: 'app.rendered'
     })
   }));
+*/
 
 const spinner = ora('building for production...')
 spinner.start()
