@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 Vue.use(resource, {
   resources,
-  endpoint: 'http://api.mlzjsu.com'
+  endpoint: 'https://api.mlzjsu.com'
 })
 
 Vue.use(deviceQueries, {
