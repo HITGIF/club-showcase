@@ -4,8 +4,7 @@
       <header class="post__header">
         <h2 class="post__title">{{ title }}</h2>
 
-        <h3 class="post__meta"><router-link class="post__author"
-          :to="`/by/${kebabify(author)}`">{{ author }}</router-link>
+        <h3 class="post__meta"><div class="post__author">{{ author }}</div>
 
         </h3>
 
@@ -21,7 +20,9 @@
       <vue-markdown class="post__body markdown-body" :source="content"></vue-markdown>
 
     </article>
+
   </transition>
+
 </template>
 
 <script>
