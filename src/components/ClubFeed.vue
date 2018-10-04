@@ -2,8 +2,9 @@
   <transition-group tag="ul" :name="transition" class="club__feed">
     <li v-for="post in feed" class="preview" :key="post.id">
       <figure class="preview__figure" :class="figureClass" :style="getBgImg(post.image)">
+
         <transition name="v--fade">
-          <figcaption v-if="!reading || $device.phone" class="preview__details">
+          <figcaption v-if="!reading" class="preview__details">
             <router-link class="preview__title"
                          :to="`/read/${post.id}`"
                          @click.native="scrollTo(0, 220, scrollDelay)">
@@ -17,10 +18,23 @@
             </div>
           </figcaption>
         </transition>
+
         <figcaption v-if="reading">
           <div class="preview__meta">
             <div class="preview__author" @click="showImage" style="cursor: pointer;">
               <i class="fas fa-search fa-s"></i> View full image
+            </div>
+          </div>
+        </figcaption>
+
+        <figcaption v-if="reading && $device.phone" class="preview__details">
+          <div class="preview__title">
+            {{ post.title }}
+          </div>
+
+          <div class="preview__meta-mobile">
+            <div class="preview__author">
+              {{ post.author }}
             </div>
           </div>
         </figcaption>

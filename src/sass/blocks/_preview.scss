@@ -95,6 +95,18 @@
     }
   }
 
+  &__meta-mobile {
+     position: absolute;
+     top: 100%;
+     right: 0;
+     padding: .5rem 0;
+     font-size: .9rem;
+
+     @media (--tablet) {
+       white-space: nowrap;
+     }
+   }
+
   &__published::after {
     content: 'by';
     padding: 0 .25rem;
