@@ -15,8 +15,8 @@ Vue.config.productionTip = false
 
 Vue.use(resource, {
   resources,
-  // endpoint: 'https://api.mlzjsu.com'
-  endpoint: 'http://127.0.0.1:5000'
+  endpoint: 'https://api.mlzjsu.com'
+  // endpoint: 'http://127.0.0.1:5000'
 })
 
 Vue.use(deviceQueries, {
