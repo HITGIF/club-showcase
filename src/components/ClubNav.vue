@@ -1,7 +1,11 @@
 <template>
   <nav class="nav">
     <h1 class="nav__title">
-      <router-link to="/" style="text-decoration: none; !important; color: #333333">{{ content.title }}</router-link>
+      <router-link to="/" style="text-decoration: none; !important; color: #333333">{{ content.title }}
+        <p style="font-size: 1.5rem; font-weight: 400; margin-top: .5rem; margin-bottom: .5rem">
+          MLIS CLUB ASSOCIATION
+        </p>
+      </router-link>
     </h1>
 
     <transition-group tag="menu" name="nav__item" class="nav__menu">
