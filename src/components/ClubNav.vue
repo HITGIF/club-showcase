@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <h1 class="nav__title">
-      <router-link to="/">{{ content.title }}</router-link>
+      <router-link to="/" style="text-decoration: none; !important; color: #333333">{{ content.title }}</router-link>
     </h1>
 
     <transition-group tag="menu" name="nav__item" class="nav__menu">

@@ -47,6 +47,7 @@ export default {
       published: '',
       description: '',
       video: '',
+      votes: '',
       commentsReady: false,
       ready: false
     }
