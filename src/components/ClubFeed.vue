@@ -184,7 +184,9 @@ export default {
     kebabify,
     prettyDate,
     getBgImg (src) {
-      return {backgroundImage: `url(${src})`}
+      return {
+        backgroundImage: `url(${src})`
+      }
     },
     getBgImgs (src) {
       let array = []
@@ -197,7 +199,7 @@ export default {
         this.posts.push(posts.shift())
 
         if (!posts.length) {
-          this.transition = 'preview'
+          // this.transition = 'preview'
           clearInterval(interval)
         }
       }
@@ -263,7 +265,7 @@ export default {
         if (!Object.keys(this.filters).length) {
           this.stackPosts(posts)
         } else {
-          this.posts = posts
+          // this.posts = posts
           this.transition = 'preview'
         }
       })
