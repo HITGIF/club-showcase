@@ -3,7 +3,6 @@
     <li v-for="post in feed" class="preview" :key="post.id">
       <figure class="preview__figure" :class="figureClass" :style="getBgImg(post.image)">
 
-        <div v-if="maximumVotes > 0">
 
           <md-button
             v-if="!reading"
@@ -12,6 +11,15 @@
             <md-icon>thumb_up</md-icon>
             {{ post.votes }}
           </md-button>
+
+        <md-dialog-alert
+          v-if="voting == post.id && !reading && maximumVotes <= 0"
+          :md-active.sync="active"
+          md-title="Vote haven't started 投票暂未开始"
+          md-content="Vote for your favourite club on the Club Fair day! 社团展当天为你最爱的社团点赞吧！" ></md-dialog-alert>
+
+
+        <div v-if="maximumVotes > 0">
 
           <md-dialog
             v-if="voting == post.id && !reading"
@@ -145,7 +153,7 @@ export default {
       snackDuration: 4000,
       showSnackbar: false,
       snackPosition: 'left',
-      maximumVotes: 5
+      maximumVotes: -1
     }
   },
 
