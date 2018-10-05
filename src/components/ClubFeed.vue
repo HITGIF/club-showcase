@@ -9,7 +9,7 @@
             class="vote md-icon-button md-raised md-accent"
             @click="active = true; voting = post.id">
             <md-icon>thumb_up</md-icon>
-            {{ post.votes }}
+            <!--{{ post.votes }}-->
           </md-button>
 
         <md-dialog-alert
