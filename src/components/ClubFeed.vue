@@ -89,7 +89,8 @@
         </figcaption>
 
         <figcaption v-if="reading && $device.phone" class="preview__details">
-          <div class="preview__title">
+          <div class="preview__title"
+               style="text-decoration: none !important; line-height: 3.2rem !important; color: #ffffff">
             {{ post.title }}
           </div>
 
