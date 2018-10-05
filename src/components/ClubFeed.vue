@@ -144,7 +144,7 @@ export default {
       snackDuration: 4000,
       showSnackbar: false,
       snackPosition: 'left',
-      maximumVotes: -1
+      maximumVotes: 5
     }
   },
 
