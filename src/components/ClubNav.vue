@@ -1,12 +1,22 @@
 <template>
   <nav class="nav">
-    <h1 class="nav__title">
-      <router-link to="/" style="text-decoration: none; !important; color: #333333">{{ content.title }}
+    <h1 v-if="$device.phone" class="nav__title" style="height: 4.5rem;">
+      <router-link to="/" style="text-decoration: none; !important; color: #333333">
+        {{ content.title }}
         <p style="font-size: 1.5rem; font-weight: 400; margin-top: .5rem; margin-bottom: .5rem">
-          MLIS CLUB ASSOCIATION
+          MLZJ CLUB ASSOCIATION
         </p>
       </router-link>
     </h1>
+    <h1 v-if="!$device.phone" class="nav__title" style="height: 4.5rem;">
+    <img style="position: absolute; width: 4.5rem; height: 4.5rem;" src="../../static/icons/garlands.svg"/>
+    <router-link to="/" style="margin-left: 5.5rem; text-decoration: none; !important; color: #333333">
+      {{ content.title }}
+      <p style="margin-left: 5.5rem; font-size: 1.5rem; font-weight: 400; margin-top: .5rem; margin-bottom: .5rem">
+        MLZJ CLUB ASSOCIATION
+      </p>
+    </router-link>
+  </h1>
 
     <transition-group tag="menu" name="nav__item" class="nav__menu">
       <li v-for="label in labels" class="nav__item" :key="label" @click="navBack">
