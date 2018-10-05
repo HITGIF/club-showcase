@@ -66,7 +66,7 @@
           <figcaption v-if="!reading" class="preview__details">
             <router-link class="preview__title"
                          :to="`/read/${post.id}`"
-                         style="text-decoration: none; !important; color: #ffffff"
+                         style="text-decoration: none !important; line-height: 3.2rem !important; color: #ffffff"
                          @click.native="scrollTo(0, 220, scrollDelay)">
               {{ post.title }}
             </router-link>
