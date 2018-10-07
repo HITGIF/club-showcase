@@ -1,9 +1,10 @@
 <template>
   <nav class="nav">
     <h1 v-if="$device.phone" class="nav__title" style="height: auto;">
+      <!--<img style="position: absolute; width: 3.45rem; height: 3.45rem; right: 0; margin-right: .5rem" src="../../static/icons/garlands.svg"/>-->
       <router-link to="/" style="font-size: 2.2rem; text-decoration: none; !important; color: #333333">
         Club Fair 2018
-        <p style="font-size: 1.2rem; font-weight: 400; margin-top: .5rem; margin-bottom: .5rem">
+        <p style="font-size: 1.25rem; font-weight: 400; margin-top: .5rem; margin-bottom: .5rem">
           MLZJ CLUB ASSOCIATION
         </p>
       </router-link>
@@ -14,7 +15,7 @@
       Club Fair 2018
     </router-link>
 
-      <p style="margin-left: 5.5rem; font-size: 1.43rem; font-weight: 400 !important; margin-top: .5rem; margin-bottom: .5rem">
+      <p style="margin-left: 5.5rem; font-size: 1.46rem; font-weight: 400 !important; margin-top: .5rem; margin-bottom: .5rem">
         MLZJ CLUB ASSOCIATION
       </p>
   </h1>
