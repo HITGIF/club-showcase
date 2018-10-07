@@ -10,6 +10,7 @@ import { MdButton, MdContent, MdIcon, MdDialog, MdField, MdSnackbar, MdDialogAle
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import VueResource from 'vue-resource'
+import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
 
@@ -26,6 +27,10 @@ Vue.use(deviceQueries, {
   laptop: 'min-width: 1025px',
   desktop: 'min-width: 1280px',
   monitor: 'min-width: 1448px'
+})
+
+Vue.use(VueAnalytics, {
+  id: 'UA-101976839-3'
 })
 
 Vue.use(Viewer)
