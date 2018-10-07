@@ -18,6 +18,7 @@
     "v-viewer": "^1.2.1",
     "vue": "^2.5.2",
     "vue-analytics": "^5.16.0",
+    "vue-content-loader": "^0.2.1",
     "vue-disqus": "^2.0.3",
     "vue-markdown": "^2.2.4",
     "vue-material": "^1.0.0-beta-10.2",

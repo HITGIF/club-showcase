@@ -1,9 +1,21 @@
 <template>
+
   <transition-group tag="ul" :name="transition" class="club__feed">
-    <li v-for="post in feed" class="preview" :key="post.id">
+
+    <li v-if="posts.length == 0" v-for="n in 30" class="preview" :key="n">
+      <content-loader
+        :height="630"
+        :width="420"
+        :speed="2"
+        primaryColor="#f3f3f3"
+        secondaryColor="#ecebeb">
+        <rect x="0" y="0" rx="1" ry="1" width="420" height="600"></rect>
+        <rect x="0" y="610" rx="2" ry="2" width="200" height="20"></rect>
+      </content-loader>
+    </li>
+
+    <li v-if="posts.length > 0" v-for="post in feed" class="preview" :key="post.id">
       <figure class="preview__figure" :class="figureClass" :style="getBgImg(post.image)">
-
-
           <md-button
             v-if="!reading"
             class="vote md-icon-button md-raised md-accent"
@@ -126,12 +138,17 @@
 </template>
 
 <script>
+import { ContentLoader } from 'vue-content-loader'
 import { scrollTo, kebabify, prettyDate } from '../helpers'
 import 'viewerjs/dist/viewer.css'
 
 export default {
   name: 'club-feed',
   resource: 'ClubFeed',
+
+  components: {
+    ContentLoader
+  },
 
   props: {
     filters: {
