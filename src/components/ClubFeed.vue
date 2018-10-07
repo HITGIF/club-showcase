@@ -1,8 +1,14 @@
 <template>
+<div>
+  <md-snackbar
+    :md-position="snackPosition" :md-duration="snackDuration" :md-active.sync="showSnackbar" md-persistent>
+    <span>{{ snackMessage }}</span>
+    <md-button class="md-primary" @click="showSnackbar = false">OK</md-button>
+  </md-snackbar>
 
   <transition-group tag="ul" :name="transition" class="club__feed">
 
-    <li v-if="posts.length == 0" v-for="n in 30" class="preview" :key="n">
+    <li v-if="!reading && posts.length == 0" v-for="n in 30" class="preview" :key="n">
       <content-loader
         :height="630"
         :width="420"
@@ -14,10 +20,10 @@
       </content-loader>
     </li>
 
-    <li v-if="posts.length > 0" v-for="post in feed" class="preview" :key="post.id">
+    <li v-for="post in feed" class="preview" :key="post.id">
       <figure class="preview__figure" :class="figureClass" :style="getBgImg(post.image)">
+
           <md-button
-            v-if="!reading"
             class="vote md-icon-button md-raised md-accent"
             @click="active = true; voting = post.id">
             <md-icon>thumb_up</md-icon>
@@ -25,16 +31,15 @@
           </md-button>
 
         <md-dialog-alert
-          v-if="voting == post.id && !reading && maximumVotes <= 0"
+          v-if="voting == post.id && maximumVotes <= 0"
           :md-active.sync="active"
           md-title="Vote haven't started 投票暂未开始"
           md-content="Vote for your favourite club on the Club Fair day! 社团展当天为你最爱的社团点赞吧！" ></md-dialog-alert>
 
-
         <div v-if="maximumVotes > 0">
 
           <md-dialog
-            v-if="voting == post.id && !reading"
+            v-if="voting == post.id"
             :md-active.sync="active"
             v-model="value"
             style=" height:auto; background-color: #ffffff;" >
@@ -73,12 +78,6 @@
               </md-button>
             </md-dialog-actions>
           </md-dialog>
-
-          <md-snackbar
-            v-if="post.id == 1 && !reading" :md-position="snackPosition" :md-duration="snackDuration" :md-active.sync="showSnackbar" md-persistent>
-            <span>{{ snackMessage }}</span>
-            <md-button class="md-primary" @click="showSnackbar = false">OK</md-button>
-          </md-snackbar>
 
         </div>
 
@@ -135,6 +134,7 @@
       </figure>
     </li>
   </transition-group>
+</div>
 </template>
 
 <script>
