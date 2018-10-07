@@ -282,8 +282,8 @@ export default {
         if (!Object.keys(this.filters).length) {
           this.stackPosts(posts)
         } else {
-          // this.posts = posts
-          this.transition = 'preview'
+          this.posts = posts
+//          this.transition = 'preview'
         }
       })
   }
