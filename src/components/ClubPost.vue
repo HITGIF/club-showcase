@@ -85,6 +85,9 @@ export default {
       setTimeout(() => {
         this.commentsReady = true
       }, 1000)
+    },
+    track () {
+      this.$ga.page('/read/' + this.post)
     }
   },
 

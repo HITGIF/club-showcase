@@ -273,6 +273,9 @@ export default {
     showSnackbarF (message) {
       this.snackMessage = message
       this.showSnackbar = true
+    },
+    track () {
+      this.$ga.page('/')
     }
   },
 
