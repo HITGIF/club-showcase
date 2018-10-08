@@ -6,7 +6,7 @@ import resource from './plugins/resource'
 import deviceQueries from './plugins/device-queries'
 import Pace from 'pace-progress'
 import Viewer from 'v-viewer'
-import { MdButton, MdContent, MdIcon, MdDialog, MdField, MdSnackbar, MdDialogAlert } from 'vue-material/dist/components'
+import { MdButton, MdContent, MdIcon, MdDialog, MdField, MdSnackbar, MdDialogAlert, MdCard } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import VueResource from 'vue-resource'
@@ -41,6 +41,7 @@ Vue.use(MdDialog)
 Vue.use(MdField)
 Vue.use(MdSnackbar)
 Vue.use(MdDialogAlert)
+Vue.use(MdCard)
 Vue.use(VueResource)
 
 new Vue({

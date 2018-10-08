@@ -6,6 +6,24 @@
     <md-button class="md-primary" @click="showSnackbar = false">OK</md-button>
   </md-snackbar>
 
+  <md-card v-if="!reading && !shownNotif" class="md-primary" style="margin: 2.5rem 2.5rem 0 2.5rem; z-index: 0; padding: 1rem 1rem 0 1rem">
+    <md-card-header>
+      <md-card-header-text>
+        <div class="md-title">Vote Start ! 投票开始了！</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">Voting will end at 24:00, Sunday October 14. Come pick your favourite clubs!</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">投票将于 10.14 周日晚上 24:00 结束，快来 pick 你最爱的社团吧！</div>
+      </md-card-header-text>
+
+      <md-card-media>
+        <md-icon style="font-size: 5rem!important; margin-top: 2rem">thumb_up</md-icon>
+      </md-card-media>
+    </md-card-header>
+
+    <md-card-actions>
+      <md-button @click="dismissNotif()">OK</md-button>
+    </md-card-actions>
+  </md-card>
+
   <transition-group tag="ul" :name="transition" class="club__feed">
 
     <li v-if="!reading && posts.length == 0" v-for="n in 30" class="preview" :key="n">
@@ -170,7 +188,8 @@ export default {
       snackDuration: 4000,
       showSnackbar: false,
       snackPosition: 'left',
-      maximumVotes: -1
+      maximumVotes: -1,
+      shownNotif: true
     }
   },
 
@@ -273,11 +292,18 @@ export default {
     showSnackbarF (message) {
       this.snackMessage = message
       this.showSnackbar = true
+    },
+    dismissNotif () {
+      this.shownNotif = true
+      localStorage.shownNotif = true;
     }
   },
 
   mounted () {
     this.$ga.page(this.$router)
+    if (localStorage.shownNotif) {
+      this.shownNotif = true;
+    }
     this.$getResource('feed')
       .then(posts => {
         if (!Object.keys(this.filters).length) {
