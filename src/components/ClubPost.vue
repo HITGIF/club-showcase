@@ -30,7 +30,6 @@
 import VueDisqus from 'vue-disqus/VueDisqus'
 import VueMarkdown from 'vue-markdown'
 import { kebabify, prettyDate } from '../helpers'
-import { page } from 'vue-analytics'
 
 export default {
   name: 'club-post',
@@ -63,6 +62,7 @@ export default {
   watch: {
     post(to, from) {
       if (to === from || !this.post) return;
+      this.$ga.page(this.$router)
 
       this.commentsReady = false
       this.$getResource('post', to)
@@ -86,9 +86,6 @@ export default {
       setTimeout(() => {
         this.commentsReady = true
       }, 1000)
-    },
-    track () {
-      page('/read/' + this.post)
     }
   },
 
