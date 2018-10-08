@@ -141,6 +141,7 @@
 import { ContentLoader } from 'vue-content-loader'
 import { scrollTo, kebabify, prettyDate } from '../helpers'
 import 'viewerjs/dist/viewer.css'
+import { page } from 'vue-analytics'
 
 export default {
   name: 'club-feed',
@@ -275,7 +276,7 @@ export default {
       this.showSnackbar = true
     },
     track () {
-      this.$ga.page('/')
+      page('/')
     }
   },
 

@@ -30,6 +30,7 @@
 import VueDisqus from 'vue-disqus/VueDisqus'
 import VueMarkdown from 'vue-markdown'
 import { kebabify, prettyDate } from '../helpers'
+import { page } from 'vue-analytics'
 
 export default {
   name: 'club-post',
@@ -87,7 +88,7 @@ export default {
       }, 1000)
     },
     track () {
-      this.$ga.page('/read/' + this.post)
+      page('/read/' + this.post)
     }
   },
 
