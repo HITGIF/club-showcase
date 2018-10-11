@@ -275,11 +275,12 @@ export default {
           this.showSnackbarF(error)
           console.log(error)
           return false
-        } else if (votes && remain) {
+        } else if (votes) {
           this.showSnackbarF(':) Voted, ' + remain + ' vote(s) left.')
           this.updateVotesFor(cid, votes)
           return true
         } else {
+          console.log(response.body)
           this.showSnackbarF('Unknown error :(')
           return false
         }
