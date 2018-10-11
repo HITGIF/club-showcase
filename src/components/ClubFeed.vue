@@ -188,8 +188,8 @@ export default {
       snackDuration: 4000,
       showSnackbar: false,
       snackPosition: 'left',
-      maximumVotes: -1,
-      shownNotif: true
+      maximumVotes: 5,
+      shownNotif: false
     }
   },
 
@@ -263,7 +263,7 @@ export default {
       formData.append('id', cid);
       formData.append('username', username);
       formData.append('password', password);
-      this.$http.post('http://127.0.0.1:5000/vote', formData, {
+      this.$http.post('http://api.mlzjsu.com/vote', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
