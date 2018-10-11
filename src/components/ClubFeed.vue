@@ -263,7 +263,7 @@ export default {
       formData.append('id', cid);
       formData.append('username', username);
       formData.append('password', password);
-      this.$http.post('http://api.mlzjsu.com/vote', formData, {
+      this.$http.post('https://api.mlzjsu.com/vote', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
