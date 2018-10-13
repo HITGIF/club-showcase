@@ -9,7 +9,7 @@
   <md-card v-if="!reading && !$device.phone" style="background-color: #ffd82f; margin: 2.5rem 2.5rem 0 2.5rem; z-index: 0; padding: 1rem 1rem 0 1rem">
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Voting Ended ! 投票结束了！</div>
+        <div class="md-title">Voting Ended 投票已结束</div>
         <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageEN }}</div>
         <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageCN }}</div>
       </md-card-header-text>
