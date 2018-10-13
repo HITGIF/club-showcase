@@ -6,12 +6,12 @@
     <md-button class="md-primary" @click="showSnackbar = false">OK</md-button>
   </md-snackbar>
 
-  <md-card v-if="!reading && !shownNotif" class="md-primary" style="margin: 2.5rem 2.5rem 0 2.5rem; z-index: 0; padding: 1rem 1rem 0 1rem">
+  <md-card v-if="!reading && !$device.phone" style="background-color: #ffd82f; margin: 2.5rem 2.5rem 0 2.5rem; z-index: 0; padding: 1rem 1rem 0 1rem">
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Vote Start ! 投票开始了！</div>
-        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">Voting will end at 24:00, Sunday October 14. Come pick your favourite clubs!</div>
-        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">投票将于 10.14 周日晚上 24:00 结束，快来 pick 你最爱的社团吧！</div>
+        <div class="md-title">Voting Ended ! 投票结束了！</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageEN }}</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageCN }}</div>
       </md-card-header-text>
 
       <md-card-media>
@@ -19,10 +19,64 @@
       </md-card-media>
     </md-card-header>
 
-    <md-card-actions>
-      <md-button @click="dismissNotif()">OK</md-button>
+    <md-card-actions mdAlignment='left'>
+      <md-button style="margin-bottom: 1rem" @click="showLeaderBoard = true">View Leader Board</md-button>
     </md-card-actions>
   </md-card>
+
+  <md-card v-if="!reading && $device.phone" style="background-color: #ffd82f; margin: 2rem 1.8rem 0 1.8rem; z-index: 0; padding: 1rem 1rem 0 1rem">
+    <md-card-header>
+      <md-card-header-text>
+        <div class="md-title">Voting Ended 投票已结束</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageEN }}</div>
+        <div class="md-subhead" style="font-size: 20px; margin-top: .5rem">{{ voteEndMessageCN }}</div>
+      </md-card-header-text>
+    </md-card-header>
+
+    <md-card-actions mdAlignment='left'>
+      <md-button style="margin-bottom: 1rem" @click="showLeaderBoard = true">View Leader Board</md-button>
+    </md-card-actions>
+  </md-card>
+
+  <!--Start Leader Board-->
+  <md-dialog
+    v-if="!reading"
+    :md-active.sync="showLeaderBoard"
+    v-model="value"
+    style=" height:auto; background-color: #ffffff;" >
+
+    <div style="
+            line-height: 2rem;
+            font-size: 1.5rem;
+            margin: 2rem 2rem 1rem 2rem;">
+      <p style="font-weight: bold;">Leader Board</p>
+    </div>
+
+    <md-content class="md-scrollbar" style="margin: 0 1rem 0 1rem; overflow-y: scroll;">
+      <md-list>
+        <li v-for="(post, index) in sortedClubs" :key="post.id">
+          <md-list-item>
+
+            <span style="width: 2rem; margin-right: 1rem; word-wrap: normal; white-space:normal;">
+              #{{ increament(index) }}
+            </span>
+
+            <span class="md-list-item-text" style="margin-right: 1rem; word-wrap: normal; white-space:normal;">
+              {{ post.title }}
+            </span>
+            <md-badge class="md-accent" :md-content="post.votes"></md-badge>
+          </md-list-item>
+        </li>
+      </md-list>
+    </md-content>
+
+    <md-dialog-actions style="margin-right: 1rem">
+      <md-button class="md-primary" @click="showLeaderBoard = false">
+        OK
+      </md-button>
+    </md-dialog-actions>
+  </md-dialog>
+  <!--End Leader Board-->
 
   <transition-group tag="ul" :name="transition" class="club__feed">
 
@@ -45,14 +99,14 @@
             class="vote md-icon-button md-raised md-accent"
             @click="active = true; voting = post.id">
             <md-icon>thumb_up</md-icon>
-            <!--{{ post.votes }}-->
+            {{ post.votes }}
           </md-button>
 
         <md-dialog-alert
           v-if="voting == post.id && maximumVotes <= 0"
           :md-active.sync="active"
-          md-title="Vote haven't started 投票暂未开始"
-          md-content="Vote for your favourite club on the Club Fair day! 社团展当天为你最爱的社团点赞吧！" ></md-dialog-alert>
+          md-title="Voting has ended 投票已结束"
+          md-content="" ></md-dialog-alert>
 
         <div v-if="maximumVotes > 0">
 
@@ -178,6 +232,8 @@ export default {
   data () {
     return {
       posts: [],
+      sortedClubs: [],
+      index: 0,
       transition: 'preview-appear',
       active: false,
       voting: 0,
@@ -188,8 +244,11 @@ export default {
       snackDuration: 4000,
       showSnackbar: false,
       snackPosition: 'left',
-      maximumVotes: 5,
-      shownNotif: false
+      maximumVotes: -1,
+      shownNotif: true,
+      showLeaderBoard: false,
+      voteEndMessageEN: 'Thanks for your votes. You can now view the Leader Board.',
+      voteEndMessageCN: '感谢您的投票，快来看排行榜！'
     }
   },
 
@@ -297,6 +356,16 @@ export default {
     dismissNotif () {
       this.shownNotif = true
       localStorage.shownNotif = true;
+    },
+    getSortedFeed () {
+      this.$http.get('https://api.mlzjsu.com/get_clubs_sorted').then((response) => {
+        if (response.body.results) {
+          this.sortedClubs = response.body.results
+        }
+      })
+    },
+    increament (index) {
+      return index + 1
     }
   },
 
@@ -305,6 +374,7 @@ export default {
     if (localStorage.shownNotif) {
       this.shownNotif = true;
     }
+    this.getSortedFeed()
     this.$getResource('feed')
       .then(posts => {
         if (!Object.keys(this.filters).length) {
