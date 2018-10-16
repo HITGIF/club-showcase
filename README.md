@@ -1,12 +1,6 @@
-# A Killer Vue.js Club Demo: Launch in 2 Hours Tops
+# Club Showcase
 
-![vuejs-club-demo](https://snipcart.com/media/175864/build-vuejs-club-copy.jpg)
-
-> Learn how to build a killer Vue.js club with a full demo: custom plugin, templating, pagination, filtering, data decoupling, and more!
-
-> [See live demo hosted on Netlify](https://vue-club-demo.netlify.com/)
-
-> [Read full tutorial on the club](https://snipcart.com/club/vuejs-club-demo)
+This is the front-end for clubfair 2018, made with [Vue](https://github.com/vuejs/vue) and [vue-material](https://github.com/vuematerial/vue-material).
 
 ## Build Setup
 
